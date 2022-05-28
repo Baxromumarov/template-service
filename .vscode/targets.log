@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat May 28 09:15:22 2022
+# Make data base, printed on Sat May 28 11:17:27 2022
 
 # Variables
 
@@ -25,7 +25,7 @@ SNAP_INSTANCE_KEY =
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-963f9e64-9bba-4f5f-b848-e8e85b744793.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-bf495c5b-6968-45f8-a173-506d6890aa02.sock
 # environment
 LC_NAME = en_US.UTF-8
 # environment
@@ -107,7 +107,7 @@ SNAP_REEXEC =
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 2440
+VSCODE_PID = 64942
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
@@ -223,7 +223,7 @@ MANAGERPID = 1586
 # environment
 LC_MEASUREMENT = en_US.UTF-8
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 2284
+GIO_LAUNCHED_DESKTOP_FILE_PID = 64894
 # environment
 _ = /snap/code/97/usr/share/code/code
 # environment
@@ -274,7 +274,6 @@ ELECTRON_NO_ATTACH_CONSOLE = 1
 SNAP_COMMON = /var/snap/code/common
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
- 
 # environment
 SNAP_USER_DATA = /home/baxrom/snap/code/97
 # environment
@@ -307,6 +306,7 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
+ 
 #  Last modified 2022-05-24 18:41:58
 #  File has been updated.
 #  Successfully updated.
@@ -353,6 +353,6 @@ build:
 # strcache performance: lookups = 30 / hit rate = 20%
 # hash-table stats:
 # Load=24/8192=0%, Rehash=0, Collisions=0/30=0%
-# Finished Make data base on Sat May 28 09:15:22 2022
+# Finished Make data base on Sat May 28 11:17:27 2022
 
  

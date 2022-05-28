@@ -8,7 +8,9 @@ package user;
 
 service UserService {
   rpc Create(User) returns (User);
+  rpc CreateAd(Address) returns (Address);
   rpc Insert(User) returns (User);
+  rpc InsertAd(Address) returns (Address);
 //  rpc Update(User) returns (UserInfo);
   rpc Delete(ById) returns (UserInfo);
   rpc GetAll(User) returns (User);
@@ -29,11 +31,12 @@ message UserInfo {
 
 
 message Address {
-  string City = 1;
-  string Country = 2;;
-  string District = 3;
-  string PostalCode = 4;
-  string id =5;
+  string id =1;
+  string City = 2;
+  string Country = 3;
+  string District = 4;
+  string PostalCode = 5;
+  
 }
 
 message User {

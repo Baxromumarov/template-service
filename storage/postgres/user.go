@@ -24,17 +24,32 @@ func (r *userRepo) Create(user *pb.User) (*pb.User, error) {
 		email varchar(255),
 		bio varchar(255),
 		phoneNumbers text[],
-	
+		address_id varchar(255),
 		typeId varchar(255),
 		Status varchar(255),
-		createdAt varchar(255),
+		createdAt timestamp,
 		updatedAt varchar(255),
 		deletedAt varchar(255),
 		FOREIGN KEY (address_id) REFERENCES addresses(id) )`)
 	if err != nil {
+		return nil,err
+	}
+
+	return user, nil
+}
+func (r *userRepo) CreateAd(ad *pb.Address) (*pb.Address, error) {
+	var res = pb.Address{}
+
+	_,err := r.db.Exec(`CREATE TABLE IF NOT EXISTS addresses (
+		id varchar(255) Primary Key,
+		city varchar(255),
+		country varchar(255),
+		district varchar(255),
+		postal_code varchar(255))`)
+	if err != nil {
 		return nil, err
 	}
-	return user, nil
+	return &res, nil
 }
 
 //insert into users
@@ -55,25 +70,31 @@ func (r *userRepo) Insert(user *pb.User) (*pb.User, error) {
 	return &res, nil
 }
 
-//func (r *userRepo) Update(id, firstName, lastName *pb.User) (*pb.UserInfo, error) {
-//	var res = pb.UserInfo{}
-//
-//	err := r.db.QueryRow(`UPDATE users SET first_name = $1, last_name = $2 where id = $3 returning id,first_name,last_name`, firstName, lastName, id).Scan(
-//		&res.Id,
-//		&res.FirstName,
-//		&res.LastName,
-//	)
-//	if err != nil {
-//		return &pb.UserInfo{}, err
-//	}
-//	return &res, nil
-//}
+//insert into addresses
+func (r *userRepo) InsertAd(ad *pb.Address) (*pb.Address, error) {
+	var add = pb.Address{}
+
+	err := r.db.QueryRow(`INSERT INTO addresses (id, city, country,
+		district,postal_code) VALUES ($1, $2, $3, $4, $5) Returning id,city,country, district,postal_code`, ad.Id, ad.City,
+		ad.Country,ad.District, ad.PostalCode).Scan(
+		&add.Id,
+		&add.City,
+		&add.Country,
+		&add.District,
+		&add.PostalCode,
+		)
+	if err != nil {
+		return nil, err
+	}
+	return &add, nil
+		
+		
+}
 
 func (r *userRepo) Delete(id *pb.ById) (*pb.UserInfo, error) {
 	var res = pb.UserInfo{}
 
-	_, err := r.db.Query(`DELETE FROM users where id = $1 returning id,
-	first_name,last_name`,id)
+	_, err := r.db.Query(`DELETE FROM users where id = $1`,id.Id)
 	if err != nil {
 		return nil, err
 	}
@@ -100,3 +121,17 @@ func (r *userRepo) GetAll(user *pb.User) (*pb.User, error) {
 	}
 	return &res, nil
 }
+
+//func (r *userRepo) Update(id, firstName, lastName *pb.User) (*pb.UserInfo, error) {
+//	var res = pb.UserInfo{}
+//
+//	err := r.db.QueryRow(`UPDATE users SET first_name = $1, last_name = $2 where id = $3 returning id,first_name,last_name`, firstName, lastName, id).Scan(
+//		&res.Id,
+//		&res.FirstName,
+//		&res.LastName,
+//	)
+//	if err != nil {
+//		return &pb.UserInfo{}, err
+//	}
+//	return &res, nil
+//}

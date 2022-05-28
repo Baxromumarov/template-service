@@ -2,6 +2,7 @@ package service
 
 import (
 	"context"
+	"time"
 
 	pb "github.com/baxromumarov/template-service/genproto"
 	l "github.com/baxromumarov/template-service/pkg/logger"
@@ -42,7 +43,7 @@ func NewUserService(db *sqlx.DB, log l.Logger) *UserService {
 }
 
 func (s *UserService) Create(ctx context.Context, req *pb.User) (*pb.User, error) {
-	// id, err := uuid.NewRandom()
+	
 	user, err := s.storage.User().Create(req)
 	if err != nil {
 		s.logger.Error("Error while creating user", l.Error(err))
@@ -51,13 +52,26 @@ func (s *UserService) Create(ctx context.Context, req *pb.User) (*pb.User, error
 	return user, nil
 }
 
+func (s *UserService) CreateAd(ctx context.Context, cad *pb.Address) (*pb.Address, error) {
+	
+	cred, err := s.storage.User().CreateAd(cad)
+	if err != nil {
+		s.logger.Error("Error while creating address", l.Error(err))
+		return nil, status.Error(codes.Internal, "Error while creating address")
+	}
+	return cred, nil
+}
+
 func (s *UserService) Insert(ctx context.Context, req1 *pb.User) (*pb.User, error) {
 	id, err := uuid.NewV4()
+	crtime := time.Now()
+
 	if err != nil {
 		s.logger.Error("Error while generating uuid", l.Error(err))
 		return nil, status.Error(codes.Internal, "Error while generating uuid")
 	}
 	req1.Id = id.String()
+	req1.CreatedAt = crtime.UTC().Format(time.RFC3339)
 	user, err := s.storage.User().Insert(req1)
 	if err != nil {
 		s.logger.Error("Error while inserting user", l.Error(err))
@@ -65,6 +79,20 @@ func (s *UserService) Insert(ctx context.Context, req1 *pb.User) (*pb.User, erro
 	}
 	return user, nil
 
+}
+func (s *UserService) InsertAd(ctx context.Context, add *pb.Address) (*pb.Address, error) {
+	idd, err := uuid.NewV4()
+	if err != nil {
+		s.logger.Error("Error while inserting address", l.Error(err))
+		return nil, status.Error(codes.Internal, "Error while inserting address")
+	}
+	add.Id = idd.String()
+	address, err := s.storage.User().InsertAd(add)
+	if err != nil {
+		s.logger.Error("Error while inserting address", l.Error(err))
+		return nil, status.Error(codes.Internal, "Error while inserting address")
+	}
+	return address, nil
 }
 
 //

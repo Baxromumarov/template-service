@@ -7,7 +7,9 @@ import (
 //UserStorageI ...
 type UserStorageI interface {
 	Create(*pb.User) (*pb.User, error)
+	CreateAd(*pb.Address) (*pb.Address, error)
 	Insert(*pb.User) (*pb.User, error)
+	InsertAd(*pb.Address) (*pb.Address, error)
 	//Update(id, firstName, lastName *pb.User) (*pb.UserInfo, error)
 	Delete(id *pb.ById) (*pb.UserInfo, error)
 	GetAll(*pb.User) (*pb.User, error)
