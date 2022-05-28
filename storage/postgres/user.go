@@ -101,12 +101,12 @@ func (r *userRepo) Delete(id *pb.ById) (*pb.UserInfo, error) {
 	return &res, nil
 }
 
-func (r *userRepo) GetAll(user *pb.User) (*pb.User, error) {
+func (r *userRepo) GetAll(id *pb.ById) (*pb.User, error) {
 	var res = pb.User{}
 
 	err := r.db.QueryRow(`SELECT first_name, last_name, email, 
 	bio, typeId, Status
-	FROM users where id = $1  `, user.Id).Scan(
+	FROM users where id = $1  `, id.Id).Scan(
 		&res.FirstName,
 		&res.LastName,
 		&res.Email,

@@ -13,7 +13,7 @@ service UserService {
   rpc InsertAd(Address) returns (Address);
 //  rpc Update(User) returns (UserInfo);
   rpc Delete(ById) returns (UserInfo);
-  rpc GetAll(User) returns (User);
+  rpc GetAll(ById) returns (User);
 
 }
 

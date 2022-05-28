@@ -114,8 +114,8 @@ func (s *UserService) Delete(ctx context.Context, id *pb.ById) (*pb.UserInfo, er
 	return user, nil
 }
 
-func (s *UserService) GetAll(ctx context.Context, user *pb.User) (*pb.User, error) {
-	user, err := s.storage.User().GetAll(user)
+func (s *UserService) GetAll(ctx context.Context, id *pb.ById) (*pb.User, error) {
+	user, err := s.storage.User().GetAll(id)
 	if err != nil {
 		s.logger.Error("Error while getting all users", l.Error(err))
 		return nil, status.Error(codes.Internal, "Error while getting all users")
