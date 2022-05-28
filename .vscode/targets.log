@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
 # GNU Make 4.3
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu May 26 12:25:15 2022
+# Make data base, printed on Sat May 28 09:15:22 2022
 
 # Variables
 
@@ -23,7 +25,7 @@ SNAP_INSTANCE_KEY =
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-514a31ab-fa0d-4531-9cba-337b494d6037.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-963f9e64-9bba-4f5f-b848-e8e85b744793.sock
 # environment
 LC_NAME = en_US.UTF-8
 # environment
@@ -65,7 +67,7 @@ VSCODE_CODE_CACHE_PATH = /home/baxrom/.config/Code/CachedData/c3511e6c69bb39013c
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.P1CJM1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.XW83M1
 # default
 .LOADED := 
 # default
@@ -105,7 +107,7 @@ SNAP_REEXEC =
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 7098
+VSCODE_PID = 2440
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
@@ -113,7 +115,7 @@ XDG_SESSION_TYPE = wayland
 # environment
 BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # environment
-SESSION_MANAGER = local/baxrom:@/tmp/.ICE-unix/1646,unix/baxrom:/tmp/.ICE-unix/1646
+SESSION_MANAGER = local/baxrom:@/tmp/.ICE-unix/1720,unix/baxrom:/tmp/.ICE-unix/1720
 # automatic
 *F = $(notdir $*)
 # environment
@@ -161,7 +163,7 @@ LC_TIME = en_US.UTF-8
 # environment
 SNAP = /snap/code/97
 # environment
-INVOCATION_ID = 91de7236409047f1ae92329f170b2577
+INVOCATION_ID = 609303420b3949a28a48c75739823b1c
 # environment
 SNAP_REVISION = 97
 # environment
@@ -201,7 +203,7 @@ SNAP_ARCH = amd64
 # makefile
 .DEFAULT_GOAL := build
 # environment
-SYSTEMD_EXEC_PID = 1665
+SYSTEMD_EXEC_PID = 1738
 # environment
 DISPLAY = :0
 # environment
@@ -217,11 +219,11 @@ SNAP_DATA = /var/snap/code/97
 # environment
 SNAP_CONTEXT = Oeh3A3OxPZY380uqOPI14nOZD8DtEfPAd16hs05uY5Mbt83oA_82
 # environment
-MANAGERPID = 1513
+MANAGERPID = 1586
 # environment
 LC_MEASUREMENT = en_US.UTF-8
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 7044
+GIO_LAUNCHED_DESKTOP_FILE_PID = 2284
 # environment
 _ = /snap/code/97/usr/share/code/code
 # environment
@@ -231,7 +233,7 @@ XDG_RUNTIME_DIR = /run/user/1000
 # environment
 GDK_PIXBUF_MODULE_FILE = /home/baxrom/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
-JOURNAL_STREAM = 8:30534
+JOURNAL_STREAM = 8:31506
 # environment
 GOMODCACHE = /home/baxrom/go/pkg/mod
 # environment
@@ -272,6 +274,7 @@ ELECTRON_NO_ATTACH_CONSOLE = 1
 SNAP_COMMON = /var/snap/code/common
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
+ 
 # environment
 SNAP_USER_DATA = /home/baxrom/snap/code/97
 # environment
@@ -291,7 +294,7 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 
 # Directories
 
-# . (device 38, inode 429844): 17 files, no impossibilities.
+# . (device 40, inode 429844): 17 files, no impossibilities.
 
 # 17 files, no impossibilities in 1 directories.
 
@@ -304,9 +307,6 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
- 
-make: *** No rule to make target 'all'.  Stop.
-
 #  Last modified 2022-05-24 18:41:58
 #  File has been updated.
 #  Successfully updated.
@@ -347,12 +347,12 @@ build:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 24 / storage = 190 B / avg = 7 B
-# current buf: size = 8162 B / used = 190 B / count = 24 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 24 / storage = 180 B / avg = 7 B
+# current buf: size = 8162 B / used = 180 B / count = 24 / avg = 7 B
 
 # strcache performance: lookups = 30 / hit rate = 20%
 # hash-table stats:
 # Load=24/8192=0%, Rehash=0, Collisions=0/30=0%
-# Finished Make data base on Thu May 26 12:25:15 2022
+# Finished Make data base on Sat May 28 09:15:22 2022
 
  

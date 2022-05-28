@@ -10,6 +10,7 @@ import (
 //IStorage ...
 type IStorage interface {
 	User() repo.UserStorageI
+	
 }
 
 type storagePg struct {

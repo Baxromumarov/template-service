@@ -1,15 +1,77 @@
 syntax = "proto3";
 
+
+// import "google/protobuf/timestamp.proto";
+
 package user;
+
 
 service UserService {
   rpc Create(User) returns (User);
+  rpc Insert(User) returns (User);
+//  rpc Update(User) returns (UserInfo);
+  rpc Delete(ById) returns (UserInfo);
+  rpc GetAll(User) returns (User);
+
+}
+
+message ById {
+  string id = 1;
+
+}
+message UserInfo {
+  string id = 1;
+  string first_name = 2;
+  string last_name = 3;
+  
 }
 
 
+
+message Address {
+  string City = 1;
+  string Country = 2;;
+  string District = 3;
+  string PostalCode = 4;
+  string id =5;
+}
 
 message User {
   string id = 1;
   string first_name = 2;
   string last_name = 3;
+  string email = 4;
+  string bio = 5;
+  repeated string phoneNumbers = 6;
+  repeated Address Addresses = 7;
+  int64 typeId = 8;
+  string Status = 9;
+  string createdAt = 10;
+  string updatedAt = 11;
+  string deletedAt = 12;
+
 }
+/*
+type User struct {
+  id string
+  first_name string
+  last_name string
+  email string
+  bio string
+  phonenNumbers []string
+  Addresses []Address
+  typeId int
+  Status string
+  createdAt time.Time
+  updatedAt time.Time
+  deletedAt time.Time
+}
+
+Type Address struct {
+  City string
+  Country string
+  District string
+  PostalCode string
+
+}
+*/
