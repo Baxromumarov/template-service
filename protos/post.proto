@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package proto;
+
+service PostService{
+    rpc CreatePost(Post) returns(Post);
+    rpc GetByIdPost(ByIdPost) returns(Post);
+}
+
+message ByIdPost{
+    string id = 1;
+}
+message Post{
+    string id = 1;
+    string user_id = 2;
+    string name = 3;
+    repeated Medias media = 4;
+    string createdAt = 5;
+    string updatedAt = 6;
+    string deletedAt = 7;
+}
+
+message Medias{
+    string id = 1;
+    string type = 2;
+    string link = 3;
+
+}
