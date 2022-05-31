@@ -1,7 +1,7 @@
 package grpcClient
 
 import (
-	"github.com/baxromumarov/template-service/config"
+	"github.com/baxromumarov/user-service/config"
 )
 
 //GrpcClientI ...

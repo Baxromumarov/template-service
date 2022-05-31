@@ -1,16 +1,14 @@
 package storage
 
 import (
-	"github.com/baxromumarov/template-service/storage/postgres"
-	"github.com/baxromumarov/template-service/storage/repo"
-
+	"github.com/baxromumarov/user-service/storage/postgres"
+	"github.com/baxromumarov/user-service/storage/repo"
 	"github.com/jmoiron/sqlx"
 )
 
 //IStorage ...
 type IStorage interface {
 	User() repo.UserStorageI
-	
 }
 
 type storagePg struct {

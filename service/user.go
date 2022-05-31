@@ -2,11 +2,12 @@ package service
 
 import (
 	"context"
+
 	"time"
 
-	pb "github.com/baxromumarov/template-service/genproto"
-	l "github.com/baxromumarov/template-service/pkg/logger"
-	"github.com/baxromumarov/template-service/storage"
+	pb "github.com/baxromumarov/user-service/genproto"
+	l "github.com/baxromumarov/user-service/pkg/logger"
+	"github.com/baxromumarov/user-service/storage"
 	"github.com/gofrs/uuid"
 	"github.com/jmoiron/sqlx"
 	"google.golang.org/grpc/codes"
@@ -29,7 +30,7 @@ type UserService struct {
 // 	panic("implement me")
 // }
 
-// func (s *UserService) GetAll(ctx context.Context, id *pb.ById) (*pb.User, error) {
+// func (s *UserService) GetById(ctx context.Context, id *pb.ById) (*pb.User, error) {
 // 	//TODO implement me
 // 	panic("implement me")
 // }
@@ -43,7 +44,7 @@ func NewUserService(db *sqlx.DB, log l.Logger) *UserService {
 }
 
 func (s *UserService) Create(ctx context.Context, req *pb.User) (*pb.User, error) {
-	
+
 	user, err := s.storage.User().Create(req)
 	if err != nil {
 		s.logger.Error("Error while creating user", l.Error(err))
@@ -53,7 +54,7 @@ func (s *UserService) Create(ctx context.Context, req *pb.User) (*pb.User, error
 }
 
 func (s *UserService) CreateAd(ctx context.Context, cad *pb.Address) (*pb.Address, error) {
-	
+
 	cred, err := s.storage.User().CreateAd(cad)
 	if err != nil {
 		s.logger.Error("Error while creating address", l.Error(err))
@@ -95,7 +96,6 @@ func (s *UserService) InsertAd(ctx context.Context, add *pb.Address) (*pb.Addres
 	return address, nil
 }
 
-//
 //func (s *UserService) Update(ctx context.Context, id, firstName, lastName *pb.User) (*pb.UserInfo, error) {
 //	user, err := s.storage.User().Update(id, firstName, lastName)
 //	if err != nil {
@@ -114,11 +114,25 @@ func (s *UserService) Delete(ctx context.Context, id *pb.ById) (*pb.UserInfo, er
 	return user, nil
 }
 
-func (s *UserService) GetAll(ctx context.Context, id *pb.ById) (*pb.User, error) {
-	user, err := s.storage.User().GetAll(id)
+func (s *UserService) GetById(ctx context.Context, id *pb.ById) (*pb.User, error) {
+	user, err := s.storage.User().GetById(id)
 	if err != nil {
 		s.logger.Error("Error while getting all users", l.Error(err))
 		return nil, status.Error(codes.Internal, "Error while getting all users")
 	}
 	return user, nil
+}
+
+func (s *UserService) GetAll(ctx context.Context, req *pb.Empty) (*pb.UserResp, error) {
+	//var users []*pb.User
+	users, err := s.storage.User().GetAll()
+	if err != nil {
+		s.logger.Error("Error while getting all users", l.Error(err))
+		return nil, status.Error(codes.Internal, "Error while getting all users")
+	}
+
+	return &pb.UserResp{
+		User: users,
+	},nil
+
 }

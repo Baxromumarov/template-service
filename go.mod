@@ -1,4 +1,4 @@
-module github.com/baxromumarov/template-service
+module github.com/baxromumarov/user-service
 
 go 1.18
 

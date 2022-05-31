@@ -1,14 +1,15 @@
 package main
 
 import (
-	"google.golang.org/grpc/reflection"
 	"net"
 
-	"github.com/baxromumarov/template-service/config"
-	pb "github.com/baxromumarov/template-service/genproto"
-	"github.com/baxromumarov/template-service/pkg/db"
-	"github.com/baxromumarov/template-service/pkg/logger"
-	"github.com/baxromumarov/template-service/service"
+	"google.golang.org/grpc/reflection"
+
+	"github.com/baxromumarov/user-service/config"
+	pb "github.com/baxromumarov/user-service/genproto"
+	"github.com/baxromumarov/user-service/pkg/db"
+	"github.com/baxromumarov/user-service/pkg/logger"
+	"github.com/baxromumarov/user-service/service"
 
 	"google.golang.org/grpc"
 )
@@ -16,7 +17,7 @@ import (
 func main() {
 	cfg := config.Load()
 
-	log := logger.New(cfg.LogLevel, "template-service")
+	log := logger.New(cfg.LogLevel, "user-service")
 	defer logger.Cleanup(log)
 
 	log.Info("main: sqlxConfig",

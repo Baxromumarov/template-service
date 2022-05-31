@@ -13,14 +13,29 @@ service UserService {
   rpc InsertAd(Address) returns (Address);
 //  rpc Update(User) returns (UserInfo);
   rpc Delete(ById) returns (UserInfo);
-  rpc GetAll(ById) returns (User);
+  rpc GetById(ById) returns (User);
+  rpc GetAll(Empty) returns (UserResp);
 
 }
-
+message Empty{
+}
 message ById {
   string id = 1;
 
 }
+
+message UserResp{
+ repeated User user = 1;
+
+
+}
+//
+//message ListReq {
+//  int64 page = 1;
+//  int64 limit = 2;
+//  repeated User sort = 3;
+//
+//}
 message UserInfo {
   string id = 1;
   string first_name = 2;
@@ -54,27 +69,3 @@ message User {
   string deletedAt = 12;
 
 }
-/*
-type User struct {
-  id string
-  first_name string
-  last_name string
-  email string
-  bio string
-  phonenNumbers []string
-  Addresses []Address
-  typeId int
-  Status string
-  createdAt time.Time
-  updatedAt time.Time
-  deletedAt time.Time
-}
-
-Type Address struct {
-  City string
-  Country string
-  District string
-  PostalCode string
-
-}
-*/

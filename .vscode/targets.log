@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat May 28 11:17:27 2022
+# Make data base, printed on Tue May 31 16:17:20 2022
 
 # Variables
 
@@ -25,7 +25,7 @@ SNAP_INSTANCE_KEY =
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-bf495c5b-6968-45f8-a173-506d6890aa02.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-d941316a-e396-400a-ab24-db1797d2d869.sock
 # environment
 LC_NAME = en_US.UTF-8
 # environment
@@ -51,7 +51,7 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
 .VARIABLES := 
 # environment
-PWD = /home/baxrom/go/src/github.com/baxromumarov/template-service
+PWD = /home/baxrom/go/src/github.com/baxromumarov/user-service
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # environment
@@ -67,7 +67,7 @@ VSCODE_CODE_CACHE_PATH = /home/baxrom/.config/Code/CachedData/c3511e6c69bb39013c
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.XW83M1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.JPYXM1
 # default
 .LOADED := 
 # default
@@ -75,7 +75,7 @@ XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.XW83M1
 # makefile
 MAKEFLAGS = pqrR
 # makefile
-CURDIR := /home/baxrom/go/src/github.com/baxromumarov/template-service
+CURDIR := /home/baxrom/go/src/github.com/baxromumarov/user-service
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
@@ -107,7 +107,7 @@ SNAP_REEXEC =
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 64942
+VSCODE_PID = 3413
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
@@ -115,7 +115,7 @@ XDG_SESSION_TYPE = wayland
 # environment
 BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # environment
-SESSION_MANAGER = local/baxrom:@/tmp/.ICE-unix/1720,unix/baxrom:/tmp/.ICE-unix/1720
+SESSION_MANAGER = local/baxrom:@/tmp/.ICE-unix/1611,unix/baxrom:/tmp/.ICE-unix/1611
 # automatic
 *F = $(notdir $*)
 # environment
@@ -163,7 +163,7 @@ LC_TIME = en_US.UTF-8
 # environment
 SNAP = /snap/code/97
 # environment
-INVOCATION_ID = 609303420b3949a28a48c75739823b1c
+INVOCATION_ID = aa2e0fb87edb4df4a9819370fb398c9e
 # environment
 SNAP_REVISION = 97
 # environment
@@ -203,7 +203,7 @@ SNAP_ARCH = amd64
 # makefile
 .DEFAULT_GOAL := build
 # environment
-SYSTEMD_EXEC_PID = 1738
+SYSTEMD_EXEC_PID = 1631
 # environment
 DISPLAY = :0
 # environment
@@ -219,11 +219,11 @@ SNAP_DATA = /var/snap/code/97
 # environment
 SNAP_CONTEXT = Oeh3A3OxPZY380uqOPI14nOZD8DtEfPAd16hs05uY5Mbt83oA_82
 # environment
-MANAGERPID = 1586
+MANAGERPID = 1455
 # environment
 LC_MEASUREMENT = en_US.UTF-8
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 64894
+GIO_LAUNCHED_DESKTOP_FILE_PID = 3134
 # environment
 _ = /snap/code/97/usr/share/code/code
 # environment
@@ -233,7 +233,7 @@ XDG_RUNTIME_DIR = /run/user/1000
 # environment
 GDK_PIXBUF_MODULE_FILE = /home/baxrom/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
-JOURNAL_STREAM = 8:31506
+JOURNAL_STREAM = 8:30520
 # environment
 GOMODCACHE = /home/baxrom/go/pkg/mod
 # environment
@@ -293,7 +293,8 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 
 # Directories
 
-# . (device 40, inode 429844): 17 files, no impossibilities.
+ 
+# . (device 38, inode 429844): 17 files, no impossibilities.
 
 # 17 files, no impossibilities in 1 directories.
 
@@ -306,7 +307,6 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
- 
 #  Last modified 2022-05-24 18:41:58
 #  File has been updated.
 #  Successfully updated.
@@ -353,6 +353,6 @@ build:
 # strcache performance: lookups = 30 / hit rate = 20%
 # hash-table stats:
 # Load=24/8192=0%, Rehash=0, Collisions=0/30=0%
-# Finished Make data base on Sat May 28 11:17:27 2022
+# Finished Make data base on Tue May 31 16:17:20 2022
 
  
