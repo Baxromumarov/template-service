@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package user;
 
+import "post.proto";
+
 
 service UserService {
   rpc Create(User) returns (User);
@@ -12,6 +14,7 @@ service UserService {
   rpc Delete(ById) returns (UserInfo);
   rpc GetById(ById) returns (User);
   rpc GetAll(Empty) returns (UserResp);
+  rpc GetAllUserPosts(ByUserIdPost) returns(GetUserPosts);
 
 }
 message Empty{
@@ -53,10 +56,11 @@ message User {
   string bio = 5;
   repeated string phoneNumbers = 6;
   repeated Address Addresses = 7;
-  int64 typeId = 8;
-  string Status = 9;
-  string createdAt = 10;
-  string updatedAt = 11;
-  string deletedAt = 12;
+  repeated Post post = 8;
+  int64 typeId = 9;
+  string Status = 10;
+  string createdAt = 11;
+  string updatedAt = 12;
+  string deletedAt = 13;
 
 }

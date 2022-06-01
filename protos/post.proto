@@ -1,10 +1,19 @@
 syntax = "proto3";
 
-package proto;
+package user;
 
 service PostService{
     rpc CreatePost(Post) returns(Post);
     rpc GetByIdPost(ByIdPost) returns(Post);
+    rpc GetAllUserPosts(ByUserIdPost) returns(GetUserPosts);
+}
+
+message GetUserPosts{
+    repeated Post posts = 1;
+}
+
+message ByUserIdPost{
+    string user_id = 1;
 }
 
 message ByIdPost{
@@ -14,13 +23,11 @@ message Post{
     string id = 1;
     string user_id = 2;
     string name = 3;
-    repeated Medias media = 4;
+    repeated Media medias = 4;
     string createdAt = 5;
-    string updatedAt = 6;
-    string deletedAt = 7;
 }
 
-message Medias{
+message Media{
     string id = 1;
     string type = 2;
     string link = 3;

@@ -10,6 +10,7 @@ import (
 	"github.com/baxromumarov/user-service/pkg/db"
 	"github.com/baxromumarov/user-service/pkg/logger"
 	"github.com/baxromumarov/user-service/service"
+	grpcClient "github.com/baxromumarov/user-service/service/grpc_client"
 
 	"google.golang.org/grpc"
 )
@@ -29,8 +30,15 @@ func main() {
 	if err != nil {
 		log.Fatal("sqlx connection to postgres error", logger.Error(err))
 	}
+	
+	grpcC, err := grpcClient.New(cfg)
+	if err != nil {
+		log.Fatal("grpc client error", logger.Error(err))	
+		return
+	}
 
-	userService := service.NewUserService(connDB, log)
+
+	userService := service.NewUserService(connDB, log, grpcC)
 
 	lis, err := net.Listen("tcp", cfg.RPCPort)
 	if err != nil {

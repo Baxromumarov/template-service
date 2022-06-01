@@ -2,11 +2,12 @@ package service
 
 import (
 	"context"
-
+	"fmt"
 	"time"
 
 	pb "github.com/baxromumarov/user-service/genproto"
 	l "github.com/baxromumarov/user-service/pkg/logger"
+	cl "github.com/baxromumarov/user-service/service/grpc_client"
 	"github.com/baxromumarov/user-service/storage"
 	"github.com/gofrs/uuid"
 	"github.com/jmoiron/sqlx"
@@ -18,28 +19,16 @@ import (
 type UserService struct {
 	storage storage.IStorage
 	logger  l.Logger
+	client cl.GrpcClientI
 }
 
-// func (s *UserService) Update(ctx context.Context, id *pb.ById) (*pb.UserInfo, error) {
-// 	//TODO implement me
-// 	panic("implement me")
-// }
-
-// func (s *UserService) Delete(ctx context.Context, id *pb.ById) (*pb.UserInfo, error) {
-// 	//TODO implement me
-// 	panic("implement me")
-// }
-
-// func (s *UserService) GetById(ctx context.Context, id *pb.ById) (*pb.User, error) {
-// 	//TODO implement me
-// 	panic("implement me")
-// }
 
 //NewUserService ...
-func NewUserService(db *sqlx.DB, log l.Logger) *UserService {
+func NewUserService(db *sqlx.DB, log l.Logger,client cl.GrpcClientI) *UserService {
 	return &UserService{
 		storage: storage.NewStoragePg(db),
 		logger:  log,
+		client: client,
 	}
 }
 
@@ -78,6 +67,18 @@ func (s *UserService) Insert(ctx context.Context, req1 *pb.User) (*pb.User, erro
 		s.logger.Error("Error while inserting user", l.Error(err))
 		return nil, status.Error(codes.Internal, "Error while inserting user")
 	}
+	if req1.Post != nil {
+		for _, post := range req1.Post {
+			post.UserId = user.Id
+			createdPost , err := s.client.PostSevice().CreatePost(context.Background(), post)
+			if err != nil {
+				s.logger.Error("Error while inserting post", l.Error(err))
+				return nil, status.Error(codes.Internal, "Error while inserting post")
+			}
+			fmt.Println(createdPost)
+		}
+	
+	}
 	return user, nil
 
 }
@@ -96,14 +97,7 @@ func (s *UserService) InsertAd(ctx context.Context, add *pb.Address) (*pb.Addres
 	return address, nil
 }
 
-//func (s *UserService) Update(ctx context.Context, id, firstName, lastName *pb.User) (*pb.UserInfo, error) {
-//	user, err := s.storage.User().Update(id, firstName, lastName)
-//	if err != nil {
-//		s.logger.Error("Error while updating user", l.Error(err))
-//		return nil, status.Error(codes.Internal, "Error while updating user")
-//	}
-//	return user, nil
-//}
+
 
 func (s *UserService) Delete(ctx context.Context, id *pb.ById) (*pb.UserInfo, error) {
 	user, err := s.storage.User().Delete(id)
@@ -124,15 +118,36 @@ func (s *UserService) GetById(ctx context.Context, id *pb.ById) (*pb.User, error
 }
 
 func (s *UserService) GetAll(ctx context.Context, req *pb.Empty) (*pb.UserResp, error) {
-	//var users []*pb.User
 	users, err := s.storage.User().GetAll()
+	if err != nil {
+		s.logger.Error("Error while getting all users1", l.Error(err))
+		return nil, status.Error(codes.Internal, "Error while getting all users1")
+	}
+
+	for _, user := range users {
+		posts, err := s.client.PostSevice().GetAllUserPosts(
+			ctx, 
+			&pb.ByUserIdPost{UserId: user.Id,
+				},
+			) 
+	
 	if err != nil {
 		s.logger.Error("Error while getting all users", l.Error(err))
 		return nil, status.Error(codes.Internal, "Error while getting all users")
 	}
+	user.Post = posts.Posts
 
+	}
 	return &pb.UserResp{
 		User: users,
-	},nil
+	},err
 
+}
+
+func (s *UserService) GetAllUserPosts(ctx context.Context, req *pb.ByUserIdPost) (*pb.GetUserPosts, error) {
+	address, err := s.client.PostSevice().GetAllUserPosts(ctx, req)
+	if err != nil {
+		return nil, err
+	}
+	return address, nil
 }

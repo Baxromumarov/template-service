@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.3
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue May 31 21:57:26 2022
+# Make data base, printed on Wed Jun  1 18:36:27 2022
 
 # Variables
 
@@ -16,6 +14,8 @@ make: *** No rule to make target 'all'.  Stop.
 GDK_BACKEND = x11
 # environment
 LC_ALL = C
+# environment
+NO_AT_BRIDGE = 1
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
@@ -25,7 +25,7 @@ SNAP_INSTANCE_KEY =
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-399372ce-02e1-4e23-a9b5-b0cbb0529176.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-35c12a47-b558-40f3-b12d-23255a6d59b5.sock
 # environment
 LC_NAME = en_US.UTF-8
 # environment
@@ -67,7 +67,7 @@ VSCODE_CODE_CACHE_PATH = /home/baxrom/.config/Code/CachedData/c3511e6c69bb39013c
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.ZDBZM1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.WMM1M1
 # default
 .LOADED := 
 # default
@@ -107,7 +107,7 @@ SNAP_REEXEC =
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 5966
+VSCODE_PID = 3651
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
@@ -115,7 +115,7 @@ XDG_SESSION_TYPE = wayland
 # environment
 BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # environment
-SESSION_MANAGER = local/baxrom:@/tmp/.ICE-unix/1709,unix/baxrom:/tmp/.ICE-unix/1709
+SESSION_MANAGER = local/baxrom:@/tmp/.ICE-unix/1662,unix/baxrom:/tmp/.ICE-unix/1662
 # automatic
 *F = $(notdir $*)
 # environment
@@ -149,7 +149,7 @@ MAKE = $(MAKE_COMMAND)
 # environment
 SNAP_COOKIE = Oeh3A3OxPZY380uqOPI14nOZD8DtEfPAd16hs05uY5Mbt83oA_82
 # environment
-PATH = /home/baxrom/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/usr/local/go/bin:/home/baxrom/go/bin
+PATH = /usr/local/go/bin:/home/baxrom/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
 # default
 MAKEFILES := 
 # environment
@@ -163,7 +163,7 @@ LC_TIME = en_US.UTF-8
 # environment
 SNAP = /snap/code/97
 # environment
-INVOCATION_ID = 99323eba57954d49ba7fab855be97cc6
+INVOCATION_ID = 458e3e27615a4b4680ec113adaf6a406
 # environment
 SNAP_REVISION = 97
 # environment
@@ -203,7 +203,7 @@ SNAP_ARCH = amd64
 # makefile
 .DEFAULT_GOAL := build
 # environment
-SYSTEMD_EXEC_PID = 1727
+SYSTEMD_EXEC_PID = 1679
 # environment
 DISPLAY = :0
 # environment
@@ -219,11 +219,11 @@ SNAP_DATA = /var/snap/code/97
 # environment
 SNAP_CONTEXT = Oeh3A3OxPZY380uqOPI14nOZD8DtEfPAd16hs05uY5Mbt83oA_82
 # environment
-MANAGERPID = 1575
+MANAGERPID = 1523
 # environment
 LC_MEASUREMENT = en_US.UTF-8
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 5916
+GIO_LAUNCHED_DESKTOP_FILE_PID = 40216
 # environment
 _ = /snap/code/97/usr/share/code/code
 # environment
@@ -233,7 +233,7 @@ XDG_RUNTIME_DIR = /run/user/1000
 # environment
 GDK_PIXBUF_MODULE_FILE = /home/baxrom/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
-JOURNAL_STREAM = 8:33348
+JOURNAL_STREAM = 8:33520
 # environment
 GOMODCACHE = /home/baxrom/go/pkg/mod
 # environment
@@ -285,7 +285,7 @@ LC_IDENTIFICATION = en_US.UTF-8
 # environment
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # variable set hash-table stats:
-# Load=136/1024=13%, Rehash=0, Collisions=7/166=4%
+# Load=137/1024=13%, Rehash=0, Collisions=7/167=4%
 
 # Pattern-specific Variable Values
 
@@ -293,7 +293,6 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 
 # Directories
 
- 
 # . (device 40, inode 429844): 17 files, no impossibilities.
 
 # 17 files, no impossibilities in 1 directories.
@@ -301,6 +300,9 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 # Implicit Rules
 
 # No implicit rules.
+ 
+make: *** No rule to make target 'all'.  Stop.
+
 
 # Files
 
@@ -353,6 +355,6 @@ build:
 # strcache performance: lookups = 30 / hit rate = 20%
 # hash-table stats:
 # Load=24/8192=0%, Rehash=0, Collisions=0/30=0%
-# Finished Make data base on Tue May 31 21:57:26 2022
+# Finished Make data base on Wed Jun  1 18:36:27 2022
 
  
