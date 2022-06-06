@@ -1,7 +1,7 @@
 package repo
 
 import (
-	pb "github.com/baxromumarov/user-service/genproto"
+	pb "github.com/baxromumarov/my-services/user-service/genproto"
 )
 
 //UserStorageI ...

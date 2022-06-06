@@ -5,12 +5,12 @@ import (
 
 	"google.golang.org/grpc/reflection"
 
-	"github.com/baxromumarov/user-service/config"
-	pb "github.com/baxromumarov/user-service/genproto"
-	"github.com/baxromumarov/user-service/pkg/db"
-	"github.com/baxromumarov/user-service/pkg/logger"
-	"github.com/baxromumarov/user-service/service"
-	grpcClient "github.com/baxromumarov/user-service/service/grpc_client"
+	"github.com/baxromumarov/my-services/user-service/config"
+	pb "github.com/baxromumarov/my-services/user-service/genproto"
+	"github.com/baxromumarov/my-services/user-service/pkg/db"
+	"github.com/baxromumarov/my-services/user-service/pkg/logger"
+	"github.com/baxromumarov/my-services/user-service/service"
+	grpcClient "github.com/baxromumarov/my-services/user-service/service/grpc_client"
 
 	"google.golang.org/grpc"
 )

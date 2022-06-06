@@ -1,7 +1,7 @@
 package postgres
 
 import (
-	pb "github.com/baxromumarov/user-service/genproto"
+	pb "github.com/baxromumarov/my-services/user-service/genproto"
 	"github.com/jmoiron/sqlx"
 	"github.com/lib/pq"
 )
@@ -105,15 +105,10 @@ func (r *userRepo) Delete(id *pb.ById) (*pb.UserInfo, error) {
 func (r *userRepo) GetById(id *pb.ById) (*pb.User, error) {
 	var res pb.User
 
-	err := r.db.QueryRow(`SELECT first_name, last_name, email, 
-	bio, typeId, Status
+	err := r.db.QueryRow(`SELECT first_name, last_name
 	FROM users where id = $1  `, id.Id).Scan(
 		&res.FirstName,
 		&res.LastName,
-		&res.Email,
-		&res.Bio,
-		&res.TypeId,
-		&res.Status,
 	)
 
 	if err != nil {
@@ -178,16 +173,4 @@ func (r *userRepo) GetAll() ([]*pb.User, error) {
 	return ruser1, nil
 }
 
-//func (r *userRepo) Update(id, firstName, lastName *pb.User) (*pb.UserInfo, error) {
-//	var res = pb.UserInfo{}
-//
-//	err := r.db.QueryRow(`UPDATE users SET first_name = $1, last_name = $2 where id = $3 returning id,first_name,last_name`, firstName, lastName, id).Scan(
-//		&res.Id,
-//		&res.FirstName,
-//		&res.LastName,
-//	)
-//	if err != nil {
-//		return &pb.UserInfo{}, err
-//	}
-//	return &res, nil
-//}
+
